@@ -1,9 +1,6 @@
 * {
-    border: solid;
-    border-width: 2px;
-    border-color: black;
-    padding: 2px;
-    margin: 2px;
+    padding: 0px;
+    margin: 0px;
     box-sizing: border-box;
     user-select: none;
 }
@@ -15,25 +12,17 @@ html
 body
 {
     width: 100%;
+    min-width: 600px;
     height: 100%;
+    min-height: fit-content;
     display: flex;
     flex-direction: column;
-}
-#main_container
-{
-    
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-areas:
-        "personal_data      bonuses"
-        "personal_data      advertisement"
-        "management         management";
-    grid-template-columns: minmax(400px, 65%) minmax(200px, 35%);
-    grid-template-rows: minmax(150px, 30%) minmax(150px, 30%) minmax(150px, 40%);
-    justify-items: center;
-}
 
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+}
 #header
 {
     position: sticky;
@@ -53,29 +42,93 @@ body
 
     z-index: 10;
 }
+#main_container
+{
+    width: 100%;
+
+    height: 100%;
+    min-height: 600px;
+
+    display: grid;
+    grid-template-areas:
+        "personal_data      bonuses"
+        "personal_data      advertisement"
+        "management         management";
+    grid-template-columns: 65% 35%;
+    grid-template-rows: minmax(fit-content, 30%) minmax(150px, 30%) minmax(fit-content, 30%);
+    justify-items: center;
+
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+    
+    background-image: url(./resourses/pictures/coffe_bg.jpg);
+    background-size: 150px, 150px;
+    background-repeat: repeat;
+}
+
+.common_box
+{
+    background-color:rgb(196, 143, 84, 0.5);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+
+    margin: 5px;
+    padding: 5px;
+}
+
+.common_label
+{
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+
+    margin: 5px;
+    padding: 5px;
+}
+
+.common_input
+{
+    background-color:rgb(196, 143, 84, 0.5);
+    border: solid;
+    border-width: 2px;  
+    border-color: rgb(60, 40, 15);
+
+    margin: 5px;
+}
+
+
+
+#logout_button
+{
+    color:rgb(196, 143, 84);
+    cursor: pointer;
+}
 
 #personal_data
 {
     grid-area: personal_data;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
 }
+
 #bonuses
 {
     grid-area: bonuses ;
     width: 100%;
     height: 100%;
-    
 }
+
 #advertisement
 {
     grid-area: advertisement ;
     width: 100%;
     height: 100%;
-
-
 }
 
 #management
@@ -83,4 +136,5 @@ body
     grid-area: management ;
     width: 100%;
     height: 100%;
+    min-height: 100px;
 }

@@ -11,34 +11,18 @@ body
     flex-direction: column;
 }
 
-#header
-{
-    position: sticky;
-    top: 0px;
-    width: 100%;
-    height: 80px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
-    background-color:rgb(145, 75, 30);
-    border: solid;
-    border-width: 4px;
-    border-color: rgb(60, 40, 15);
-
-    z-index: 10;
-}
-
 #main_page
 {
-    height: 2000px;
+    height: max-content;
 
     background-color:rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
     border-color: rgb(60, 40, 15);
+
+    background-image: url(./resourses/pictures/coffe_bg.jpg);
+    background-size: 150px, 150px;
+    background-repeat: repeat;
 }
 
 #news_box
@@ -50,7 +34,7 @@ body
     flex-direction: column;
     overflow: hidden;
     justify-content: center;
-
+    
     margin: 5px;
     padding: 5px;
     background-color: rgb(145, 75, 30);
@@ -101,31 +85,28 @@ body
     background-size: cover;
 }
 
-#account_box
+#general_info
 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-
-    width: 200px;
-    height: 200px;
-
-    display: flex;
-    flex-direction: column;
-
-    background-color:lightblue;
-
-    z-index: 9;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(145, 75, 30);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
 }
 
+#photo_section
+{
+    display: flex;
+    flex-direction:row;
+}
 
-
-
-
-
-
+.photo_pic
+{
+    height: 300px;
+    width: 300px;
+    margin: 2px;
+}
 
 
 
@@ -138,10 +119,6 @@ body
     color: rgb(225, 175, 105);
 }
 #autorisation_window
-{
-    flex-direction: column;
-}
-#create_account_window
 {
     flex-direction: column;
 }

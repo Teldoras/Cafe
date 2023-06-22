@@ -1,0 +1,58 @@
+
+#header
+{   
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color:rgb(145, 75, 30);
+    border: solid;
+    border-width: 4px;
+    border-color: rgb(60, 40, 15);
+
+    margin: 0;
+
+    z-index: 10;
+}
+
+#account_buttons_box
+{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#logout_button
+{
+    color:rgb(196, 143, 84);
+    cursor: pointer;
+}
+
+#account_box
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+
+    z-index: 9;
+}

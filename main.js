@@ -1,49 +1,72 @@
+
 let news_tape = document.getElementById('news_tape');
-let scroll_data = [0,0,0,0]; // elenent id, state, position. state: 0 - stopped, 1 - moved, 2 - impulsed, 3 - corrected.
+let scroll_data = [0, 0, 0, 0]; // elenent id, state, position. state: 0 - stopped, 1 - moved, 2 - impulsed, 3 - corrected.
 let coords = document.getElementById('coords');
 let account_box = document.getElementById('account_box')
 
-let autorisation_state = 1;
-
-document.addEventListener('DOMContentLoaded', function()
-{
+document.addEventListener('DOMContentLoaded', function () {
     autorisation_check();
 })
 
-document.addEventListener('mousemove', function(event){
+document.addEventListener('mousemove', function (event) {
     let x = event.clientX;
     let y = event.clientY;
 
     coords.textContent = 'X: ' + x + '   Y: ' + y + '\r\n' +
-    scroll_data[0] + ' ' + scroll_data[1] + ' ' + scroll_data[2] + ' ' + scroll_data[3] + '\r\n';
+        scroll_data[0] + ' ' + scroll_data[1] + ' ' + scroll_data[2] + ' ' + scroll_data[3] + '\r\n';
 })
 
-autorisation_button.addEventListener('click', function(){
-    if (autorisation_state == 1)
-    {
-        window.location.href = 'account.html';
-    }
-    else
-    {
-        account_box.style.visibility = 'visible';
-        autorisation_window.style.display = 'flex';
-        create_account_window.style.display = 'none';
+//const test = require ('registration');
+
+autorisation_accept_button.addEventListener('click', async function (event) {
+    //const test = await import("./registration.js");
+    event.preventDefault();
+    let users = event.srcElement.form;
+
+    if (data_check(users)) { //проверка правильности введённых данных
+        let user_info = {}
+        user_info.email = users[0].value
+        user_info.password = users[1].value
+
+        autorise(JSON.stringify(user_info));
     }
 })
-main_button.addEventListener('click', function(){
-    window.location.href = 'main.html';
+
+registration_accept_button.addEventListener('click', async function (event) {
+    //const test = await import("./registration.js");
+    event.preventDefault();
+    let users = event.srcElement.form;
+
+    if (data_check(users)) { //проверка правильности введённых данных
+        let user_info = {}
+        user_info.email = users[0].value
+        user_info.password = users[1].value
+        user_info.first_name = users[2].value
+        user_info.last_name = users[3].value
+        registrate(JSON.stringify(user_info));
+        //добавить задержку
+        //autorise(JSON.stringify(user_info)); //а надо ли
+    }
 })
-a_c_change_button.addEventListener('click', function(){
-    if ((autorisation_window.style.display == 'flex') && (create_account_window.style.display == 'none'))
-    {
-        autorisation_window.style.display = 'none';
-        create_account_window.style.display = 'flex';
+
+a_c_change_button.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (process_name.textContent == 'Авторизация') {
+        process_name.textContent = 'Регистрация'
+        name_input.style.display = 'block';
+        surname_input.style.display = 'block';
+        registration_accept_button.style.display = 'block';
+        autorisation_accept_button.style.display = 'none';
+        a_c_change_button.textContent = 'Авторизоваться'
         return;
     }
-    if ((autorisation_window.style.display == 'none') && (create_account_window.style.display == 'flex'))
-    {
-        autorisation_window.style.display = 'flex';
-        create_account_window.style.display = 'none';
+    if (process_name.textContent == 'Регистрация') {
+        process_name.textContent = 'Авторизация'
+        name_input.style.display = 'none';
+        surname_input.style.display = 'none';
+        registration_accept_button.style.display = 'none';
+        autorisation_accept_button.style.display = 'block';
+        a_c_change_button.textContent = 'Зарегестрироваться'
         return;
     }
 })
@@ -54,42 +77,39 @@ news_tape.addEventListener('mousedown', function () {
 news_tape.addEventListener('mousemove', function (event) {
     if ((scroll_data[0] == this) && (scroll_data[1] == 1)) {
         scroll_data[2] = scroll_data[2] + event.movementX;
-        scroll_data[0].style.left = scroll_data[2] - (scroll_data[0].parentElement.getBoundingClientRect().left + 6) +'px';
+        scroll_data[0].style.left = scroll_data[2] - (scroll_data[0].parentElement.getBoundingClientRect().left + 6) + 'px';
     }
 })
 news_tape.addEventListener('mouseup', function () {
     this.style.cursor = 'grab';
-    if ((scroll_data[0] == this)&&(scroll_data[1] == 1))
-    {
+    if ((scroll_data[0] == this) && (scroll_data[1] == 1)) {
         check_position(this)
     }
 })
-news_tape.addEventListener('mouseleave', function()
-{
+news_tape.addEventListener('mouseleave', function () {
     this.style.cursor = 'grab';
-    if ((scroll_data[0] == this)&&(scroll_data[1] == 1))
-    {
+    if ((scroll_data[0] == this) && (scroll_data[1] == 1)) {
         check_position(this);
     }
 })
 
-function start_movement(moved_element_id)
-{
+
+function start_movement(moved_element_id) {
     scroll_data[0] = moved_element_id;
     scroll_data[1] = 1;
     scroll_data[2] = moved_element_id.getBoundingClientRect().left;
     moved_element_id.style.cursor = 'grabbing';
 }
 
-function continue_movement (moved_element_id) {
+function continue_movement(moved_element_id) {
 
 }
 function stop_movement() {
-        console.log('stopped')
-        scroll_data[0] = 0;
-        scroll_data[1] = 0;
-        scroll_data[2] = 0;
-        scroll_data[3] = 0;
+    console.log('stopped')
+    scroll_data[0] = 0;
+    scroll_data[1] = 0;
+    scroll_data[2] = 0;
+    scroll_data[3] = 0;
 }
 
 function correct_element_position(moved_element_id) {
@@ -103,22 +123,21 @@ function correct_element_position(moved_element_id) {
         //рамка родителя, паддинг родителя, собственный марджин
         let correction_value = 6;
 
-        switch (true)
-        {
-            case(left_position > (left_border + correction_value - 2)):
-            {
-                left_position -= Math.ceil((left_position - (left_border + correction_value)) / 2);
-                moved_element_id.style.left = left_position - (left_border + correction_value + 2) + 'px';
-                console.log('left fuck');
-                break;
-            }
-            case(right_position < (right_border - correction_value)):
-            {
-                left_position += Math.ceil((right_border - (right_position + correction_value - 2)) / 2);
-                moved_element_id.style.left = left_position - (left_border + correction_value) + 'px';
-                console.log('right fuck');
-                break;
-            }
+        switch (true) {
+            case (left_position > (left_border + correction_value - 2)):
+                {
+                    left_position -= Math.ceil((left_position - (left_border + correction_value)) / 3);
+                    moved_element_id.style.left = left_position - (left_border + correction_value + 2) + 'px';
+                    console.log('left fuck');
+                    break;
+                }
+            case (right_position < (right_border - correction_value)):
+                {
+                    left_position += Math.ceil((right_border - (right_position + correction_value - 2)) / 3);
+                    moved_element_id.style.left = left_position - (left_border + correction_value) + 'px';
+                    console.log('right fuck');
+                    break;
+                }
             default:
                 console.log('mom help');
                 stop_movement();
@@ -126,11 +145,11 @@ function correct_element_position(moved_element_id) {
         }
         setTimeout(correct_element_position, 20, moved_element_id);
     }
-    else{
+    else {
         stop_movement();
     }
 }
-function check_position(moved_element_id){
+function check_position(moved_element_id) {
     let left_position = moved_element_id.getBoundingClientRect().left;
     let right_position = moved_element_id.getBoundingClientRect().right;
     let left_border = moved_element_id.parentElement.getBoundingClientRect().left;
@@ -140,16 +159,31 @@ function check_position(moved_element_id){
     //рамка родителя, паддинг родителя, собственный марджин
     let correction_value = 6;
 
-    if( left_position > (left_border + correction_value) || right_position < (right_border - correction_value))
-    {
+    if (left_position > (left_border + correction_value) || right_position < (right_border - correction_value)) {
         scroll_data[1] = 3;
         correct_element_position(moved_element_id);
     }
-    else{
+    else {
         stop_movement();
     }
 }
 
-function autorisation_check(){
-    
+function autorisation_check() {
+    if (localStorage.getItem('status') == 'autorised') {
+
+        // let user_info = {}
+        // user_info.email = localStorage.getItem('email')
+        // user_info.password = localStorage.getItem('password')
+        // autorise(JSON.stringify(user_info))
+
+        autorisation_button.style.display = "none";
+        account_button.style.display = "inline"
+        logout_button.style.display = "inline"
+    }
+}
+
+function data_check(users) {
+    if (true) {
+        return true;
+    }
 }

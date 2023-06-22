@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Меню</title>
+    <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="main_menu.css" />
+</head>
+<body>
+    <menu id="header">
+        <button id="menu_button">Меню/заказать</button>
+        <button id="main_button">Кафе "Логотип"</button>
+        <div id="account_buttons_box">
+            <button id="autorisation_button"> Вход/<br> Регистрация</button>
+            <button id="account_button" style="display: none;"> Личный кабинет</button>
+            <h5 id="logout_button" style="display: none;">Выход</h5>
+        </div>
+    </menu>
+
+    <div id="menu_page">
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Кофе</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/coffee_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Чай</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/tea_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Чизкейк</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/cheesecake_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Мороженное</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/icecream_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Кексы</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/muffin_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+        <div id="g_card_1" class="goods_cards">
+            <p4 class="goods_names">Вафли</p4>
+            <img id="g_picture_1" class="goods_pictures" src="resourses/menu_pics/waffles_1.jpg">
+            <input type="number" id="g_number_1" class="goods_numbers" value="1">
+            <label id="g_price_1" class="goods_prices"> 100 р.</label>
+            <button id="g_button_1" class="goods_buttons">Добавить</button>
+        </div>
+    </div>
+
+    <div id="account_box" style="visibility: hidden;">
+        <form id="autorisation_window">
+            <h4 id="process_name">Авторизация</h4>
+            <input id="emale_input" type="text" name="Email_address">
+            <input id="password_input" type="text" name="Password">
+            <input id="name_input" type="text" name="First_Name">
+            <input id="surname_input" type="text" name="Second_Name">
+            <h5 id="exception_text"></h5>
+            <button id="autorisation_accept_button">Принять</button>
+            <button id="registration_accept_button">Принять</button>
+        </form>
+            <button id="a_c_change_button">Зарегестрироваться</button>
+    </div>
+
+    <script src="main_menu.js"></script>
+
+    <script src="registration.js"></script>
+    <script src="autorisation.js"></script>
+</body>

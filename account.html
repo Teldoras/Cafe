@@ -4,31 +4,39 @@
     <meta charset="UTF-8" />
     <title>Личный кабинет</title>
     <link rel="stylesheet" href="account.css" />
+    <link rel="stylesheet" href="main_menu.css" />
 </head>
 <body>
     <menu id="header">
-        <button>Меню/заказать</button>
+        <button id="menu_button">Меню/заказать</button>
         <button id="main_button">Кафе "Логотип"</button>
-        <button id="autorisation_button"> Aвторицация/<br> Личный кабинет</button>
+        <div id="account_buttons_box">
+            <button id="autorisation_button" > Вход/<br> Регистрация</button>
+            <button id="account_button" style="display: none;"> Личный кабинет</button>
+            <h5 id="logout_button" style="display: none;">Выход</h5>
+        </div>
     </menu>
     <div id="main_container">
-        <div id="personal_data">
+        <form id="personal_data" class="common_box">
             Личная информация
-            <label>Имя <input></label>
-            <label>Фамилия <input></label>
-            <label>Адрес <input></label>
-            <label>Дата рождения <input></label>
-            <label>Электронная почта <input></label>
-            <label>Телефон <input></label>
-            <button>Принять</button>
-        </div>
-        <div id="advertisement">личная реклама</div>
-        <div id="bonuses">Акции/бонусы</div>
+            <label class="common_label">Имя <input type="text" id="user_name" class="common_input"></label>
+            <label class="common_label">Фамилия <input type="text" id="user_surname" class="common_input"></label>
+            <label class="common_label">Адрес <input type="text" id="user_address" class="common_input"></label>
+            <label class="common_label">Дата рождения <input type="date" id="user_birthday" class="common_input"></label>
+            <label class="common_label">Электронная почта <input type="text" id="user_email" readonly class="common_input"></label>
+            <label class="common_label">Телефон <input type="text" id="user_phone" class="common_input"></label>
+            <button id="personal_data_confirm_button">Принять</button>
+        </form>
+        <div id="advertisement" class="common_box">личная реклама</div>
+        <div id="bonuses" class="common_box">Акции/бонусы</div>
         
         <div id="management">
             Управление сайтом
-            
         </div>
-        <script  src="account.js"></script>
     </div>
+
+    <script src="main_menu.js"></script>
+    <script src="account.js"></script>
+    <script src="personal_data_getting.js"></script>
+    <script src="personal_data_changing.js"></script>
 </body>
