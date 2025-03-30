@@ -42,7 +42,7 @@ body
 
     z-index: 10;
 }
-#main_container
+#account_page
 {
     width: 100%;
 
@@ -92,20 +92,12 @@ body
 
 .common_input
 {
-    background-color:rgb(196, 143, 84, 0.5);
+    background-color: bisque;
     border: solid;
     border-width: 2px;  
     border-color: rgb(60, 40, 15);
 
     margin: 5px;
-}
-
-
-
-#logout_button
-{
-    color:rgb(196, 143, 84);
-    cursor: pointer;
 }
 
 #personal_data
@@ -115,6 +107,13 @@ body
     height: fit-content;
     display: flex;
     flex-direction: column;
+}
+
+#personal_data_confirm_button
+{
+    width: min-content;
+    position:relative;
+    left: 50%;
 }
 
 #bonuses
@@ -137,4 +136,26 @@ body
     width: 100%;
     height: 100%;
     min-height: 100px;
+}
+
+#booking_records {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking_record{
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+#record_menu{
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    position: absolute;
+    
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
 }

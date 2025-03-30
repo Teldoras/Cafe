@@ -5,7 +5,7 @@ let coords = document.getElementById('coords');
 let account_box = document.getElementById('account_box')
 
 document.addEventListener('DOMContentLoaded', function () {
-    autorisation_check();
+    
 })
 
 document.addEventListener('mousemove', function (event) {
@@ -104,6 +104,7 @@ function start_movement(moved_element_id) {
 function continue_movement(moved_element_id) {
 
 }
+
 function stop_movement() {
     console.log('stopped')
     scroll_data[0] = 0;
@@ -128,18 +129,18 @@ function correct_element_position(moved_element_id) {
                 {
                     left_position -= Math.ceil((left_position - (left_border + correction_value)) / 3);
                     moved_element_id.style.left = left_position - (left_border + correction_value + 2) + 'px';
-                    console.log('left fuck');
+                    //console.log('left bump');
                     break;
                 }
             case (right_position < (right_border - correction_value)):
                 {
                     left_position += Math.ceil((right_border - (right_position + correction_value - 2)) / 3);
                     moved_element_id.style.left = left_position - (left_border + correction_value) + 'px';
-                    console.log('right fuck');
+                    //console.log('right bump');
                     break;
                 }
             default:
-                console.log('mom help');
+                //console.log('stop movement');
                 stop_movement();
                 break;
         }
@@ -165,20 +166,6 @@ function check_position(moved_element_id) {
     }
     else {
         stop_movement();
-    }
-}
-
-function autorisation_check() {
-    if (localStorage.getItem('status') == 'autorised') {
-
-        // let user_info = {}
-        // user_info.email = localStorage.getItem('email')
-        // user_info.password = localStorage.getItem('password')
-        // autorise(JSON.stringify(user_info))
-
-        autorisation_button.style.display = "none";
-        account_button.style.display = "inline"
-        logout_button.style.display = "inline"
     }
 }
 

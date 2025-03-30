@@ -12,7 +12,8 @@ body
 }
 
 #main_page
-{
+{   
+    min-height: 85%;
     height: max-content;
 
     background-color:rgb(196, 143, 84);
@@ -77,7 +78,7 @@ body
     font-size: 40px;
 
 
-    background-color: cornflowerblue;
+    background-color: rgb(196, 143, 84);
     margin: 5px;
 
     background-position: center;
@@ -108,8 +109,6 @@ body
     margin: 2px;
 }
 
-
-
 #contact_info
 {
     height: 200px;
@@ -117,8 +116,4 @@ body
 
     background-color: rgb(60, 40, 15);
     color: rgb(225, 175, 105);
-}
-#autorisation_window
-{
-    flex-direction: column;
 }

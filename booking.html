@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Кафе "Логотип"</title>
+    <link rel="stylesheet" href="booking.css" />
+    <link rel="stylesheet" href="main_menu.css" /> 
+</head>
+
+<body>
+
+    <div id="booking_page">
+    
+        <div id="booking_box">
+            <div id="booking_info">
+                <p>Инфо</p>
+            </div>
+            <select id="time_list">
+                <option value=""></option>
+
+            </select>
+            <div id="hall_scheme" disabled="true">
+
+            </div>
+            <button id="booking_continue_button">Продолжить</button>
+        </div>
+
+        <div id="booking_process_window" >
+            <div id="BPW_controls">            
+                <p id="BPW_close_button">X</p>
+            </div>
+            <label>Имя: <input type="text" id="booking_name" value="Алексей"></label>
+            <label>Контакты: <input type="text" id="booking_contacts" value="123@mail.ru"></label>
+            <select id="time_from_list" >
+
+            </select>
+            <select id="time_to_list" >>
+
+            </select>
+            <button id="booking_confirm_button" >Продолжить</button>
+        </div>
+    
+    </div>
+
+    <script src="main_menu.js"></script>
+    <script src="booking.js"></script>
+    <script src="booking_data_interactions.js"></script>
+
+</body>
+
+</html>

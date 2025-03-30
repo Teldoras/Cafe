@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Личный кабинет</title>
     <link rel="stylesheet" href="account.css" />
     <link rel="stylesheet" href="main_menu.css" />
 </head>
+
 <body>
-    <menu id="header">
-        <button id="menu_button">Меню/заказать</button>
-        <button id="main_button">Кафе "Логотип"</button>
-        <div id="account_buttons_box">
-            <button id="autorisation_button" > Вход/<br> Регистрация</button>
-            <button id="account_button" style="display: none;"> Личный кабинет</button>
-            <h5 id="logout_button" style="display: none;">Выход</h5>
-        </div>
-    </menu>
-    <div id="main_container">
+
+    <div id="account_page">
         <form id="personal_data" class="common_box">
             Личная информация
-            <label class="common_label">Имя <input type="text" id="user_name" class="common_input"></label>
-            <label class="common_label">Фамилия <input type="text" id="user_surname" class="common_input"></label>
-            <label class="common_label">Адрес <input type="text" id="user_address" class="common_input"></label>
-            <label class="common_label">Дата рождения <input type="date" id="user_birthday" class="common_input"></label>
-            <label class="common_label">Электронная почта <input type="text" id="user_email" readonly class="common_input"></label>
-            <label class="common_label">Телефон <input type="text" id="user_phone" class="common_input"></label>
+            <label class="common_label">Имя:
+                <input type="text" id="user_name" class="common_input"></label>
+            <label class="common_label">Фамилия:
+                <input type="text" id="user_surname" class="common_input"></label>
+            <label class="common_label">Адрес:
+                <input type="text" id="user_address" class="common_input"></label>
+            <label class="common_label">Дата рождения:
+                <input type="date" id="user_birthday" class="common_input"></label>
+            <label class="common_label">Электронная почта:
+                <input type="text" id="user_email" readonly class="common_input"></label>
+            <label class="common_label">Телефон: +7-
+                <input type="text" id="user_phone" class="common_input" placeholder="913 123 45 67"></label>
             <button id="personal_data_confirm_button">Принять</button>
         </form>
         <div id="advertisement" class="common_box">личная реклама</div>
         <div id="bonuses" class="common_box">Акции/бонусы</div>
-        
-        <div id="management">
+
+        <div id="management" class="common_box">
             Управление сайтом
+            <div id="management_controls" style="display: flexbox; ">
+
+            </div>
+            <div id="management_output" style="background-color: bisque; height:inherit;">
+            </div>
+            <div id="autorisation_logs" style="white-space:pre-wrap;  overflow: auto; height:inherit;">
+
+            </div>
         </div>
     </div>
 
     <script src="main_menu.js"></script>
     <script src="account.js"></script>
-    <script src="personal_data_getting.js"></script>
-    <script src="personal_data_changing.js"></script>
+    <script src="account_data_interactions.js"></script>
+    <script src="admin_data_interactions.js"></script>
+    <script src="admin_bookings_window_generator.js"></script>
+    <script src="admin_orders_window_generator.js"></script>
 </body>

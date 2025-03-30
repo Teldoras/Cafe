@@ -5,23 +5,20 @@
     user-select: none;
 }
 
-body
-{
+body {
     display: flex;
     flex-direction: column;
 }
 
-#menu_page
-{
+#menu_page {
     min-height: 100vh;
     height: fit-content;
     width: 100%;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
 
-    background-color:rgb(196, 143, 84);
+    background-color: rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
     border-color: rgb(60, 40, 15);
@@ -31,56 +28,140 @@ body
     background-repeat: repeat;
 }
 
-.goods_cards{
+#goods_list {
+    min-width: 300px;
+    width: 80vw;
+}
 
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    width: fit-content;
+#basket {
+    min-width: 200px;
+    width: 20vw;
     height: fit-content;
 
-    display: grid;
-    grid-template-areas: 
-    "nam nam nam"
-    "pic pic pic" 
-    "num pri but";
-    gap: 4px;
-
-    background-color:rgb(196, 143, 84, 0.75);
+    background-color: rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
     border-color: rgb(60, 40, 15);
 }
-.goods_names{
-    grid-area: nam;
+
+#basket_list {
+    height: 40vh;
+    min-height: 200px;
+}
+
+.goods_cards {
+    /*
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+ */
+    width: fit-content;
+    height: fit-content;
+
+    display: inline-grid;
+    grid-template-areas:
+        "gnam gnam gnam gdis"
+        "gpic gpic gpic gdis"
+        "gnum gpri gbut gdis";
+    gap: 2px;
+
+    background-color: rgb(196, 143, 84, 0.75);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+    margin: 2px;
+}
+
+.goods_names {
+    grid-area: gnam;
     height: 25px;
-    width: 100px;   
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    background-color: bisque;
 }
-.goods_pictures{
-    grid-area: pic;
+
+.goods_pictures {
+    grid-area: gpic;
     height: 200px;
     width: 200px;
 }
-.goods_numbers{
-    grid-area: num;
-    height: 25px;
-    width: 75px;
-    margin-left: auto;  
-}
-.goods_prices{
-    grid-area: pri;
+
+.goods_numbers {
+    grid-area: gnum;
     height: 25px;
     width: 50px;
+    margin-left: auto;
+}
+
+.goods_prices {
+    grid-area: gpri;
+    height: 25px;
+    width: 75px;
     text-align: center;
 }
-.goods_buttons{
-    grid-area: but;
+
+.goods_buttons {
+    grid-area: gbut;
     height: 25px;
     width: 75px;
     margin-right: auto;
+}
+
+.goods_description {
+    grid-area: gdis;
+    height: 250px;
+    width: 150px;
+}
+
+#order_window {
+
+    display: grid;
+    grid-template-areas:
+        "onam   olis"
+        "ocon   olis"
+        "oadd   olis"
+        "otim   olis"
+        "none   obut";
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 50% 50%;
+
+    width: 600px;
+    height: 200px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+}
+
+#order_name {
+    grid-area: onam;
+}
+
+#order_contacts {
+    grid-area: ocon;
+}
+
+#order_address {
+    grid-area: oadd;
+}
+
+#order_time {
+    grid-area: otim;
+}
+
+#order_list {
+    grid-area: olis;
+}
+
+#order_confirm_button {
+    grid-area: obut;
 }

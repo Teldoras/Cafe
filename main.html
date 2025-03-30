@@ -9,8 +9,10 @@
 </head>
 
 <body>
+    <!--
     <menu id="header">
         <button id="menu_button">Меню/заказать</button>
+        <button id="booking_button">Зал/забронировать</button>
         <button id="main_button">Кафе "Логотип"</button>
         <div id="account_buttons_box">
             <button id="autorisation_button"> Вход/<br> Регистрация</button>
@@ -18,6 +20,7 @@
             <h5 id="logout_button" style="display: none;">Выход</h5>
         </div>
     </menu>
+    -->
     <div id="main_page">
 
         <div id="news_box">
@@ -75,10 +78,10 @@
         <div id="account_box" style="visibility: hidden;">
             <form id="autorisation_window">
                 <h4 id="process_name">Авторизация</h4>
-                <input id="emale_input" type="text" name="Email_address">
-                <input id="password_input" type="text" name="Password">
-                <input id="name_input" type="text" name="First_Name">
-                <input id="surname_input" type="text" name="Second_Name">
+                <label> почта <input  id="emale_input" type="text" name="Email_address"></label>
+                <label> пароль <input id="password_input" type="text" name="Password"></label>
+                <label> имя <input id="name_input" type="text" name="First_Name"></label>
+                <label> фамилия <input id="surname_input" type="text" name="Second_Name"></label>
                 <h5 id="exception_text"></h5>
                 <button id="autorisation_accept_button">Принять</button>
                 <button id="registration_accept_button">Принять</button>
@@ -89,8 +92,7 @@
 
     <script src="main_menu.js"></script>
     <script src="main.js"></script>
-    <script src="registration.js"></script>
-    <script src="autorisation.js"></script>
+
 </body>
 
 </html>
