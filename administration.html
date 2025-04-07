@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Личный кабинет</title>
-    <link rel="stylesheet" href="account.css" />
+    <link rel="stylesheet" href="./administration.css" />
     <link rel="stylesheet" href="./main_menu/main_menu.css" />
 </head>
 
@@ -27,14 +27,23 @@
                 <input type="tel" id="user_phone" class="common_input" placeholder="913-123-45-67"></label>
             <button id="personal_data_confirm_button">Принять</button>
         </form>
-        <div id="advertisement" class="common_box">личная реклама</div>
         <div id="bonuses" class="common_box">Акции/бонусы</div>
+
+        <div id="management" class="common_box">
+            Управление сайтом
+            <div id="management_controls" style="display: flexbox; ">
+            </div>
+            <div id="management_output" style="background-color: bisque;">
+            </div>
+            <div id="autorisation_logs" style="white-space:pre-wrap;  overflow: auto;">
+            </div>
+        </div>
     </div>
 
     <script src="./main_menu/main_menu.js"></script>
-    <script src="account.js"></script>
+    <script src="administration.js"></script>
     <script src="account_data_interactions.js"></script>
-    <!-- <script src="admin_data_interactions.js"></script>
+    <script src="admin_data_interactions.js"></script>
     <script src="admin_bookings_window_generator.js"></script>
-    <script src="admin_orders_window_generator.js"></script> -->
+    <script src="admin_orders_window_generator.js"></script>
 </body>

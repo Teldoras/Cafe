@@ -34,9 +34,9 @@ body
     display: grid;
     grid-template-areas:
         "personal_data      bonuses"
-        "personal_data      advertisement";
+        "management         management";
     grid-template-columns: 65% 35%;
-    grid-template-rows: minmax(fit-content, 50%), minmax(150px, 50%);
+    grid-template-rows: minmax(fit-content, 50%) minmax(fit-content, 50%);
     justify-items: center;
 
     background-color:rgb(196, 143, 84);
@@ -112,4 +112,62 @@ body
     grid-area: advertisement ;
     width: 100%;
     height: 100%;
+}
+
+#management
+{
+    grid-area: management ;
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+}
+
+#management_output{
+    height: 100%;
+    max-height: 300px;
+}
+
+#booking_records {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking_record{
+    cursor: pointer;
+    margin-top: 4px;
+    margin-left: 6px;
+}
+
+.order_record{
+    cursor: pointer;
+    margin-top: 4px;
+    margin-left: 6px;
+}
+
+#booking_record_menu{
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    position: absolute;
+    
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+}
+
+#order_record_menu{
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    position: absolute;
+    
+    background-color:rgb(196, 143, 84);
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(60, 40, 15);
+}
+
+#autorisation_logs{
+    height: fit-content;
 }

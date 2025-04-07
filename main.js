@@ -2,7 +2,6 @@
 let news_tape = document.getElementById('news_tape');
 let scroll_data = [0, 0, 0, 0]; // elenent id, state, position. state: 0 - stopped, 1 - moved, 2 - impulsed, 3 - corrected.
 let coords = document.getElementById('coords');
-let account_box = document.getElementById('account_box')
 
 document.addEventListener('DOMContentLoaded', function () {
     
@@ -16,60 +15,67 @@ document.addEventListener('mousemove', function (event) {
         scroll_data[0] + ' ' + scroll_data[1] + ' ' + scroll_data[2] + ' ' + scroll_data[3] + '\r\n';
 })
 
-//const test = require ('registration');
+// autorisation_accept_button.addEventListener('click', async function (event) {
+//     //const test = await import("./registration.js");
+//     event.preventDefault();
+//     let users = event.srcElement.form;
 
-autorisation_accept_button.addEventListener('click', async function (event) {
-    //const test = await import("./registration.js");
-    event.preventDefault();
-    let users = event.srcElement.form;
+//     if (data_check(users)) { //проверка правильности введённых данных
+//         let user_info = {}
+//         user_info.email = users[0].value
+//         user_info.password = users[1].value
 
-    if (data_check(users)) { //проверка правильности введённых данных
-        let user_info = {}
-        user_info.email = users[0].value
-        user_info.password = users[1].value
+//         autorise(JSON.stringify(user_info));
+//     }
+// })
 
-        autorise(JSON.stringify(user_info));
-    }
-})
+// registration_accept_button.addEventListener('click', async function (event) {
+//     //const test = await import("./registration.js");
+//     event.preventDefault();
+//     let users = event.srcElement.form;
 
-registration_accept_button.addEventListener('click', async function (event) {
-    //const test = await import("./registration.js");
-    event.preventDefault();
-    let users = event.srcElement.form;
+//     if (data_check(users)) { //проверка правильности введённых данных
+//         let user_info = {}
+//         user_info.email = users[0].value
+//         user_info.password = users[1].value
+//         user_info.first_name = users[2].value
+//         user_info.last_name = users[3].value
+//         registrate(JSON.stringify(user_info));
+//         //добавить задержку
+//         //autorise(JSON.stringify(user_info)); //а надо ли
+//     }
+// })
 
-    if (data_check(users)) { //проверка правильности введённых данных
-        let user_info = {}
-        user_info.email = users[0].value
-        user_info.password = users[1].value
-        user_info.first_name = users[2].value
-        user_info.last_name = users[3].value
-        registrate(JSON.stringify(user_info));
-        //добавить задержку
-        //autorise(JSON.stringify(user_info)); //а надо ли
-    }
-})
+// a_c_change_button.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     if (process_name.textContent == 'Авторизация') {
+//         process_name.textContent = 'Регистрация'
+//         name_input.style.display = 'block';
+//         surname_input.style.display = 'block';
+//         registration_accept_button.style.display = 'block';
+//         autorisation_accept_button.style.display = 'none';
+//         a_c_change_button.textContent = 'Авторизоваться'
+//         return;
+//     }
+//     if (process_name.textContent == 'Регистрация') {
+//         process_name.textContent = 'Авторизация'
+//         name_input.style.display = 'none';
+//         surname_input.style.display = 'none';
+//         registration_accept_button.style.display = 'none';
+//         autorisation_accept_button.style.display = 'block';
+//         a_c_change_button.textContent = 'Зарегестрироваться'
+//         return;
+//     }
+// })
 
-a_c_change_button.addEventListener('click', function (event) {
-    event.preventDefault();
-    if (process_name.textContent == 'Авторизация') {
-        process_name.textContent = 'Регистрация'
-        name_input.style.display = 'block';
-        surname_input.style.display = 'block';
-        registration_accept_button.style.display = 'block';
-        autorisation_accept_button.style.display = 'none';
-        a_c_change_button.textContent = 'Авторизоваться'
-        return;
-    }
-    if (process_name.textContent == 'Регистрация') {
-        process_name.textContent = 'Авторизация'
-        name_input.style.display = 'none';
-        surname_input.style.display = 'none';
-        registration_accept_button.style.display = 'none';
-        autorisation_accept_button.style.display = 'block';
-        a_c_change_button.textContent = 'Зарегестрироваться'
-        return;
-    }
-})
+// document.getElementById('black_box').addEventListener('click', function(e) {
+//     console.log(e.target);
+//     if (e.target == document.getElementById('black_box'))
+//     {
+//         account_box.style.display = 'none';
+//         black_box.style.display = 'none'
+//     }
+// })
 
 news_tape.addEventListener('mousedown', function () {
     start_movement(this);
@@ -106,7 +112,7 @@ function continue_movement(moved_element_id) {
 }
 
 function stop_movement() {
-    console.log('stopped')
+    // console.log('stopped')
     scroll_data[0] = 0;
     scroll_data[1] = 0;
     scroll_data[2] = 0;
@@ -129,18 +135,18 @@ function correct_element_position(moved_element_id) {
                 {
                     left_position -= Math.ceil((left_position - (left_border + correction_value)) / 3);
                     moved_element_id.style.left = left_position - (left_border + correction_value + 2) + 'px';
-                    //console.log('left bump');
+                    // console.log('left bump');
                     break;
                 }
             case (right_position < (right_border - correction_value)):
                 {
                     left_position += Math.ceil((right_border - (right_position + correction_value - 2)) / 3);
                     moved_element_id.style.left = left_position - (left_border + correction_value) + 'px';
-                    //console.log('right bump');
+                    // console.log('right bump');
                     break;
                 }
             default:
-                //console.log('stop movement');
+                // console.log('stop movement');
                 stop_movement();
                 break;
         }

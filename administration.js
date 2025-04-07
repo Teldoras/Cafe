@@ -1,10 +1,17 @@
 
+
 document.addEventListener('DOMContentLoaded', async function () {
     await fill_personal_data()
+    let user_info = {}
+    user_info.email = localStorage.getItem('email')
+    user_info.password = localStorage.getItem('password')
+    await get_admin_booking_data(JSON.stringify(user_info))
+    await get_admin_orders_data(JSON.stringify(user_info))
     //administrator_check();
 })
 
 async function fill_personal_data() {
+
     let user_info = {}
     user_info.email = localStorage.getItem('email')
     user_info.password = localStorage.getItem('password')
@@ -15,7 +22,6 @@ async function fill_personal_data() {
 //     let user_info = {}
 //     user_info.email = localStorage.getItem('email')
 //     user_info.password = localStorage.getItem('password')
-
 //     await get_admin_booking_data(JSON.stringify(user_info))
 //     await get_admin_orders_data(JSON.stringify(user_info))
 // }

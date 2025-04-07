@@ -9,9 +9,9 @@ async function take_tables_data() {
    })
 
    let json_tables_data = await response.json()
-   console.log('данные о столиках (json): ' + json_tables_data)
+   // console.log('данные о столиках (json): ' + json_tables_data)
 
-   console.log('данные о столиках (текст): ' + JSON.stringify(json_tables_data))
+   // console.log('данные о столиках (текст): ' + JSON.stringify(json_tables_data))
 
    let hall = document.getElementById('hall_scheme')
 
@@ -41,8 +41,8 @@ async function take_bookings_data(time) {
    })
 
    let json_bookings_data = await response.json()
-   console.log('данные о бронировании (json): ' + json_bookings_data)
-   console.log('данные о бронировании (json): ' + JSON.stringify(json_bookings_data))
+   // console.log('данные о бронировании (json): ' + json_bookings_data)
+   // console.log('данные о бронировании (json): ' + JSON.stringify(json_bookings_data))
 
    let tables = [].slice.call(document.getElementsByClassName('table'))
    tables.forEach(element => {
@@ -59,24 +59,24 @@ async function take_bookings_data(time) {
 
 }
 
-async function send_booking_data(tables, name, contacts, time_from, time_to)
+async function send_booking_ta(tables, name, contacts, time_from, time_to)
 {
    let url = "/send_BD"
 
    const tables_ids = chosen_tables.map((table) => table.replace('table_',''))
-   let json_booking_data = {id:tables_ids, name:name, contacts:contacts, time_from:time_from, time_to,time_to}
-   console.log('уходящие данные бронирования: ' + JSON.stringify(json_booking_data))
+   let json_booking_ta = {id:tables_ids, name:name, contacts:contacts, time_from:time_from, time_to,time_to}
+   // console.log('уходящие данные бронирования: ' + JSON.stringify(json_booking_ta))
 
    let response = await fetch(url, {
       method: "POST",
       headers: {
          "Content-Type": "text/json"
       },
-      body: JSON.stringify(json_booking_data)
+      body: JSON.stringify(json_booking_ta)
    })
 
    let res = await response.json();
-   console.log('вернувшиеся данные бронирования: ' + JSON.stringify(res))
+   // console.log('вернувшиеся данные бронирования: ' + JSON.stringify(res))
 
    if (res.result == true)
    {

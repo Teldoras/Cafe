@@ -10,8 +10,8 @@ async function take_goods_data() {
 
     let goods_data = await response.json()
 
-    console.log(goods_data)
-    console.log(JSON.stringify(goods_data))
+    // console.log(goods_data)
+    // console.log(JSON.stringify(goods_data))
 
     fill_goods(goods_data)
 

@@ -62,7 +62,7 @@ function activate_g_button(button = document.createElement('button')) {
     button.addEventListener('click', function (event) {
         event.preventDefault()
         let repeat_check = false
-        //console.log(this.value)
+        // console.log(this.value)
         for (let i = 0; i < choosen_goods.length; i++) {
             const element = choosen_goods[i];
             
@@ -79,7 +79,7 @@ function activate_g_button(button = document.createElement('button')) {
                 goods_name: document.getElementById('g_name_' + this.value).textContent,
                 price: Number(document.getElementById('g_price_' + this.value).textContent.slice(0, -3))
             })
-            console.log(choosen_goods)
+            // console.log(choosen_goods)
         }
         refresh_basket()
     })
