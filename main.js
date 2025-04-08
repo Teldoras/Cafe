@@ -15,68 +15,6 @@ document.addEventListener('mousemove', function (event) {
         scroll_data[0] + ' ' + scroll_data[1] + ' ' + scroll_data[2] + ' ' + scroll_data[3] + '\r\n';
 })
 
-// autorisation_accept_button.addEventListener('click', async function (event) {
-//     //const test = await import("./registration.js");
-//     event.preventDefault();
-//     let users = event.srcElement.form;
-
-//     if (data_check(users)) { //проверка правильности введённых данных
-//         let user_info = {}
-//         user_info.email = users[0].value
-//         user_info.password = users[1].value
-
-//         autorise(JSON.stringify(user_info));
-//     }
-// })
-
-// registration_accept_button.addEventListener('click', async function (event) {
-//     //const test = await import("./registration.js");
-//     event.preventDefault();
-//     let users = event.srcElement.form;
-
-//     if (data_check(users)) { //проверка правильности введённых данных
-//         let user_info = {}
-//         user_info.email = users[0].value
-//         user_info.password = users[1].value
-//         user_info.first_name = users[2].value
-//         user_info.last_name = users[3].value
-//         registrate(JSON.stringify(user_info));
-//         //добавить задержку
-//         //autorise(JSON.stringify(user_info)); //а надо ли
-//     }
-// })
-
-// a_c_change_button.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     if (process_name.textContent == 'Авторизация') {
-//         process_name.textContent = 'Регистрация'
-//         name_input.style.display = 'block';
-//         surname_input.style.display = 'block';
-//         registration_accept_button.style.display = 'block';
-//         autorisation_accept_button.style.display = 'none';
-//         a_c_change_button.textContent = 'Авторизоваться'
-//         return;
-//     }
-//     if (process_name.textContent == 'Регистрация') {
-//         process_name.textContent = 'Авторизация'
-//         name_input.style.display = 'none';
-//         surname_input.style.display = 'none';
-//         registration_accept_button.style.display = 'none';
-//         autorisation_accept_button.style.display = 'block';
-//         a_c_change_button.textContent = 'Зарегестрироваться'
-//         return;
-//     }
-// })
-
-// document.getElementById('black_box').addEventListener('click', function(e) {
-//     console.log(e.target);
-//     if (e.target == document.getElementById('black_box'))
-//     {
-//         account_box.style.display = 'none';
-//         black_box.style.display = 'none'
-//     }
-// })
-
 news_tape.addEventListener('mousedown', function () {
     start_movement(this);
 })
