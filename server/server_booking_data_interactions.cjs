@@ -18,19 +18,15 @@ module.exports = function () {
 
         let query_content
 
-        query_content = `SELECT * FROM bookings WHERE time_from < '` + time + `' AND time_to > '` + time + `'`;
+        query_content = `SELECT * FROM bookings WHERE time_from < '${time}' AND time_to > '${time}'`;
         const booking_res = await client.query(query_content)
-
-        let json
-
-        json = JSON.stringify(booking_res.rows)
 
         let booking_data = []
         let tables_res
 
         for (i = 0; i < booking_res.rows.length; i++) {
 
-            query_content = `SELECT table_number FROM bookings_tables WHERE booking_id = '` + booking_res.rows[i].id + `'`;
+            query_content = `SELECT table_number FROM bookings_tables WHERE booking_id = '${booking_res.rows[i].id}'`;
             tables_res = await client.query(query_content)
 
             tables_res.rows.forEach(element => {
@@ -38,7 +34,39 @@ module.exports = function () {
             })
         }
 
-        return JSON.stringify(booking_data);
+        query_content = `
+            SELECT bookings_tables.table_number AS id, bookings.time_from, bookings.time_to
+            FROM  bookings_tables JOIN bookings 
+            ON bookings_tables.booking_id = bookings.id 
+            WHERE bookings_tables.table_number NOT IN (`
+        for (i = 0; i < booking_data.length; i++){
+            console.log('i = ' + i)
+            if (i > 0)
+                query_content += ','
+            console.log('id = ' + booking_data[i].id)
+
+            query_content += booking_data[i].id;
+        }       
+        query_content += `)`
+
+        //console.log(query_content)
+
+        const not_booking_res = await client.query(query_content)
+
+        //console.log(not_booking_res.rows)
+
+        let avaiable_tables_data = []
+        for (i = 0; i < not_booking_res.rows.length; i++)
+        {
+            // time
+            avaiable_tables_data.push({id:0, time_from: Math.max(0,0), time_to: Math.min(0,0)})
+        }
+
+        //console.log(booking_data)
+        //console.log(JSON.stringify(booking_data))
+        //console.log(JSON.stringify({booking_data:booking_data, not_booking_data: not_booking_res.rows}))
+
+        return JSON.stringify({bookings: booking_data, not_bookings: not_booking_res.rows});
     }
     //отправление данных о новом бронировании в базу данных
     this.DB_send_BD = async function (dataJSON) {
