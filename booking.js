@@ -4,6 +4,7 @@ const time_list = document.getElementById('time_list');
 const hall_scheme = document.getElementById('hall_scheme');
 let box_movement = false;
 const BPW = document.getElementById('booking_process_window')
+let currentTime = new Date();
 
 document.addEventListener('DOMContentLoaded', function () {
     take_tables_data()
@@ -86,7 +87,7 @@ function check_time() {
         }
     }
 
-    let currentTime = new Date();
+    
     currentTime = new Date(2025, 1, 1, 14, 25, 11, 0);
     // console.log('текущее время: ' + currentTime);
 
@@ -155,6 +156,6 @@ document.addEventListener('mousemove', function(e){
 })
 
 document.addEventListener('mouseup', function(){
-    box_movement = false;
-    console.log(box_movement)
+    if (box_movement)
+        box_movement = false;
 })

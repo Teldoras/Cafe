@@ -88,10 +88,14 @@ body {
 
 .table {
     position: absolute;
-    width: 75px;
-    height: 50px;
+    width: 16%;
+    height: 18%;
     background-color: azure;
     transform: translate(-50%, -50%);
+}
+
+.info_p{
+    margin: 5px;
 }
 
 #booking_continue_button {
