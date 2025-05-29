@@ -39,6 +39,7 @@ async function get_admin_data(user_info) {
 }
 
 async function get_admin_booking_data(user_info) {
+    console.log(user_info)
     let url = "/get_ABD"
     let response = await fetch(url, {
         method: "POST",

@@ -59,13 +59,13 @@ function activate_tables() {
                 // console.log('столик ' + j + ' уже выбран');
                 const index = chosen_tables.indexOf(j)
                 if (index > -1) chosen_tables.splice(index, 1)
-                this.style.backgroundColor = 'azure';
+                this.style.backgroundColor = 'blue';
                 // console.log('столик ' + j + ' был удалён, список: ' + chosen_tables);
             }
             else {
                 // console.log('столик ' + j + ' ещё не выбран');
                 chosen_tables.push(j);
-                this.style.backgroundColor = 'greenyellow';
+                this.style.backgroundColor = 'green';
                 // console.log('столик ' + j + ' был добавлен, список: ' + chosen_tables);
             }
         })

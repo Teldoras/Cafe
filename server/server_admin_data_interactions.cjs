@@ -4,13 +4,23 @@ module.exports = function () {
         const client = await this.connection_module()
         const data = JSON.parse(dataJSON)
 
+        console.log(dataJSON)
+        console.log(data)
+
         let query_content = `SELECT password, user_type FROM users WHERE email LIKE '${data.email}'`;
         const res = await client.query(query_content)
+
+        let state = ''
+        if (data.state != null)
+        {
+            state = `WHERE state = ${data.state}`
+        }
 
         if (data.password == res.rows[0].password) {
             if (res.rows[0].user_type > 0) {
                 data.result = 'true'
-                query_content = `SELECT * FROM bookings ORDER BY time_from ASC;`
+                query_content = `SELECT * FROM bookings ${state} ORDER BY time_from ASC;`
+                //query_content = `SELECT * FROM bookings WHERE state = ${1} ORDER BY time_from ASC;`
                 const res_2 = await client.query(query_content)
 
                 for (let i = 0; i < res_2.rows.length; i++) {
@@ -40,10 +50,16 @@ module.exports = function () {
         let query_content = `SELECT password, user_type FROM users WHERE email LIKE '${data.email}'`;
         const res = await client.query(query_content)
 
+        let state = ''
+        if (data.state != null)
+        {
+            state = `WHERE state = ${data.state}`
+        }
+
         if (data.password == res.rows[0].password) {
             if (res.rows[0].user_type > 0) {
                 data.result = 'true'
-                query_content = `SELECT * FROM orders ORDER BY time ASC;`
+                query_content = `SELECT * FROM orders ${state} ORDER BY time ASC;`
                 const res_2 = await client.query(query_content)
 
                 for (let i = 0; i < res_2.rows.length; i++) {

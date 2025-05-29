@@ -5,7 +5,14 @@
     user-select: none;
 }
 
-body {
+html
+{
+    padding: 0px;
+}
+
+body
+{
+    padding: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -18,12 +25,12 @@ body {
     display: flex;
     flex-direction: row;
 
-    background-color: rgb(196, 143, 84);
+    /* background-color: rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
+    border-color: rgb(60, 40, 15); */
 
-    background-image: url(./resourses/pictures/coffe_bg.jpg);
+    /* background-image: url(./resourses/pictures/coffe_bg.jpg); */
     background-size: 150px, 150px;
     background-repeat: repeat;
 }
@@ -37,11 +44,10 @@ body {
     min-width: 200px;
     width: 20vw;
     height: fit-content;
-
-    background-color: rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
+    /* background-color: rgb(196, 143, 84);
+    border-color: rgb(60, 40, 15); */
 }
 
 #basket_list {
@@ -66,27 +72,29 @@ body {
         "gnum gpri gbut gdis";
     gap: 2px;
 
-    background-color: rgb(196, 143, 84, 0.75);
+    /* background-color: rgb(196, 143, 84, 0.75); */
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
+    /* border-color: rgb(60, 40, 15); */
     margin: 2px;
 }
 
 .goods_names {
     grid-area: gnam;
-    height: 25px;
-    width: 100px;
+    height: auto;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: bisque;
+    /* border: solid;
+    border-width: 2px;
+    background-color: bisque; */
 }
 
 .goods_pictures {
     grid-area: gpic;
     height: 200px;
-    width: 200px;
+    width: 250px;
 }
 
 .goods_numbers {
@@ -98,10 +106,10 @@ body {
 
 .goods_prices {
     grid-area: gpri;
-    height: 25px;
-    width: 75px;
+    height: auto;
+    width: auto;
     text-align: center;
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 
 .goods_buttons {
@@ -115,6 +123,9 @@ body {
     grid-area: gdis;
     height: 250px;
     width: 150px;
+    text-align: center;
+    border: solid;
+    border-width: 2px;
 }
 
 
@@ -138,10 +149,12 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
+
+    /* background-color: rgb(196, 143, 84);
+
+    border-color: rgb(60, 40, 15); */
 }
 
 #order_name {

@@ -69,6 +69,16 @@ http.createServer(function (request, response) {
                         }
                     });
                     break;
+                case '/take_history':
+                    DB_take_history(request_data).catch((exception) => {
+                        is_error = true;
+                    }).then((response_data) => {
+                        if (is_error == false) {
+                            console.log(response_data)
+                            response.end(response_data);
+                        }
+                    });
+                    break;
                 case '/take_TD':
                     DB_take_TD().catch((exception) => {
                         is_error = true;
@@ -101,6 +111,7 @@ http.createServer(function (request, response) {
                         is_error = true;
                     }).then((response_data) => {
                         if (is_error == false) {
+                            console.log(response_data)
                             response.end(response_data);
                         }
                     })

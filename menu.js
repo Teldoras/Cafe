@@ -1,5 +1,5 @@
 const choosen_goods = [] // [{goods_id, goods_name, quantity, price}]
-const basket_list = document.getElementById('basket_list')
+//const basket_list = document.getElementById('basket_list')
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -10,7 +10,7 @@ document.getElementById('basket_confirm_button').addEventListener('click', funct
     //choosen_goods.length = 0;
     //refresh_basket();
     document.getElementById('order_box').style.visibility = 'visible'
-
+    refresh_basket(document.getElementById('order_list'))
 })
 
 document.getElementById('order_confirm_button').addEventListener('click', function (event){
@@ -28,8 +28,8 @@ document.getElementById('order_confirm_button').addEventListener('click', functi
 
 
 
-function refresh_basket() {
-    clear_basket()
+function refresh_basket(goods_list) {
+    clear_basket(goods_list)
     let basket_cost = 0.0
     choosen_goods.forEach(element => {
         let new_item = document.createElement('p')
@@ -38,15 +38,15 @@ function refresh_basket() {
             element.goods_name
             + ', ' + element.quantity + ' шт.'
             + ', стоимость: ' + element.cost + ' р.'
-        basket_list.appendChild(new_item)
+        goods_list.appendChild(new_item)
         basket_cost += element.cost
     });
     document.getElementById('goods_cost').textContent = 'Общая стоимость: ' + basket_cost + ' р.';
 }
 
-function clear_basket() {
+function clear_basket(goods_list) {
     document.getElementById('goods_cost').textContent = 'Общая стоимость: '
-    while (basket_list.firstElementChild) {
-        basket_list.removeChild(basket_list.lastElementChild);
+    while (goods_list.firstElementChild) {
+        goods_list.removeChild(goods_list.lastElementChild);
     }
 }

@@ -1,3 +1,12 @@
+*{
+    box-sizing: border-box;
+    background-color:darkblue;
+    /* border: solid; */
+    /* border-width: 4px; */
+    border-color:gold;
+    color:gold;
+    padding: 2px;
+}
 
 #header
 {   
@@ -12,10 +21,10 @@
     align-items: center;
     justify-content: space-around;
 
-    background-color:rgb(145, 75, 30);
+    /* background-color:rgb(145, 75, 30); */
     border: solid;
     border-width: 4px;
-    border-color: rgb(60, 40, 15);
+    /* border-color: rgb(60, 40, 15); */
 
     margin: 0;
 
@@ -31,7 +40,7 @@
 
 #logout_button
 {
-    color:rgb(196, 143, 84);
+    /* color:rgb(196, 143, 84); */
     cursor: pointer;
 }
 
@@ -50,10 +59,8 @@
     flex-direction: column;
     padding: 5px;
 
-    background-color:rgb(196, 143, 84);
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
 
     z-index: 16;
 }

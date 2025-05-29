@@ -51,7 +51,7 @@ async function take_bookings_data(time) {
     tables.forEach(element => {
         //console.log('cleared', element.id)
         element.title = `Столик ${element.id.substring(element.id.length - 1)}`
-        element.style.backgroundColor = 'azure'
+        element.style.backgroundColor = 'blue'
         element.disabled = false
     })
 
@@ -67,7 +67,7 @@ async function take_bookings_data(time) {
 
         table = document.getElementById('table_' + element.id)
         console.log('bisy', table.id)
-        table.style.backgroundColor = 'darkgrey'
+        table.style.backgroundColor = 'midnightblue'
         table.disabled = true
         //   table.title += `\nзабронирован\nс ${element.time_from} \nпо  ${element.time_to}`;
         table.title += `\nзабронирован\nс ${element.time_from} \nпо  ${element.time_to}`;

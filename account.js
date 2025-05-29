@@ -9,6 +9,8 @@ async function fill_personal_data() {
     user_info.email = localStorage.getItem('email')
     user_info.password = localStorage.getItem('password')
     await get_personal_data(JSON.stringify(user_info))
+    await fill_history(JSON.stringify(user_info))
+
 }
 
 // async function administrator_check() {
@@ -47,40 +49,18 @@ personal_data_confirm_button.addEventListener('click', function (event) {
 
 })
 
-function create_admin_window() {
-    let show_booking_window_button = document.createElement('button')
-    show_booking_window_button.id = 'show_booking_window_button'
-    show_booking_window_button.textContent = 'Бронирования'
-    document.getElementById('management_controls').appendChild(show_booking_window_button)
+function fill_history(rows = []){
+    for (let i = 0; i < JSON.parse(rows).length; i++) {
 
-    let show_order_window_button = document.createElement('button')
-    show_order_window_button.id = 'show_order_window_button'
-    show_order_window_button.textContent = 'Заказы'
-    document.getElementById('management_controls').appendChild(show_order_window_button)
-
-    // let show_staff_window_button = document.createElement('button')
-    // show_staff_window_button.id = 'show_staff_window_button'
-    // show_staff_window_button.textContent = 'Персонал'
-    // document.getElementById('management_controls').appendChild(show_staff_window_button)
-
-    show_booking_window_button.addEventListener('click', function (event) {
-        booking_management.style.display = 'block'
-        orders_management.style.display = 'none'
-        //staff_management.style.display = 'none'
-    })
-    
-    show_order_window_button.addEventListener('click', function (event) {
-        booking_management.style.display = 'none'
-        orders_management.style.display = 'block'
-        //staff_management.style.display = 'none'
-    })
-    
-    // show_staff_window_button.addEventListener('click', function (event) {
-    //     booking_management.style.display = 'none'
-    //     orders_management.style.display = 'none'
-    //     staff_management.style.display = 'block'
-    // })
+        
+        history_record.textContent += `(${element.state})`
+        if (element.notes != null) {
+            history_record.textContent += `, примечания: ${element.notes};`
+        }
+        document.getElementById('history_list').appendChild(history_record)
+    }
 }
+
 
 
 

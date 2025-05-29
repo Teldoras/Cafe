@@ -8,6 +8,7 @@ html
 {
     width: 100%;
     height: 100%;
+    padding: 0px;
 }
 body
 {
@@ -17,11 +18,7 @@ body
     min-height: fit-content;
     display: flex;
     flex-direction: column;
-
-    background-color:rgb(196, 143, 84);
-    border: solid;
-    border-width: 2px;
-    border-color: rgb(60, 40, 15);
+    padding: 0px;
 }
 
 #account_page
@@ -34,27 +31,23 @@ body
     display: grid;
     grid-template-areas:
         "personal_data      bonuses"
-        "personal_data      advertisement";
+        "history      history";
     grid-template-columns: 65% 35%;
     grid-template-rows: minmax(fit-content, 50%), minmax(150px, 50%);
     justify-items: center;
+    gap: 2px;
 
-    background-color:rgb(196, 143, 84);
-    border: solid;
-    border-width: 2px;
-    border-color: rgb(60, 40, 15);
-    
-    background-image: url(./resourses/pictures/coffe_bg.jpg);
-    background-size: 150px, 150px;
-    background-repeat: repeat;
+    padding: 0px;
+    margin: 2px;
 }
 
 .common_box
 {
-    background-color:rgb(196, 143, 84, 0.5);
+
     border: solid;
     border-width: 2px;
-    border-color: rgb(60, 40, 15);
+    /* border-color: rgb(60, 40, 15);
+    background-color:rgb(196, 143, 84, 0.5); */
 
     margin: 5px;
     padding: 5px;
@@ -62,10 +55,11 @@ body
 
 .common_label
 {
-    background-color:burlywood;
+
     border: solid;
     border-width: 2px;
-    border-color: sienna;
+    /* border-color: sienna;
+    background-color:burlywood; */
 
     margin: 5px;
     padding: 8px;
@@ -74,10 +68,12 @@ body
 .common_input
 {
 
-    background-color: bisque;
+
     border: solid;
     border-width: 2px;  
-    border-color:sienna;
+    /* border-color:sienna;
+    background-color: bisque; */
+
     width: 200px;
 
     position: absolute;
@@ -107,9 +103,9 @@ body
     height: 100%;
 }
 
-#advertisement
+#history_box
 {
-    grid-area: advertisement ;
+    grid-area: history ;
     width: 100%;
     height: 100%;
 }

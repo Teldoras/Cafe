@@ -49,9 +49,9 @@ function create_card(g_data) {
     new_discr.className = 'goods_description'
     new_discr.id = 'g_discription_' + g_data.id
     try {
-        new_discr.textContent = g_data.discription
+        new_discr.textContent = (g_data.discription != null & "") ? g_data.discription : "Описание:";
     } catch (error) {
-        new_discr.textContent = 'Описание'
+        console.log('Ошибка описания товара. ' + error)
     }
     new_card.appendChild(new_discr)
 
@@ -81,6 +81,6 @@ function activate_g_button(button = document.createElement('button')) {
             })
             // console.log(choosen_goods)
         }
-        refresh_basket()
+        refresh_basket(document.getElementById('basket_list'))
     })
 }

@@ -13,26 +13,43 @@ function create_orders_window(rows = []) {
         orders_management.id = 'orders_management'
         orders_management.style.display = 'none'
     
-        let order_switch = document.createElement('div')
-        order_switch.id = 'order_switch'
-        order_switch.style.display = 'flexbox'
+        let orders_switch = document.createElement('div')
+        orders_switch.id = 'orders_switch'
+        orders_switch.style.display = 'flexbox'
     
         let new_orders_button = document.createElement('button')
         new_orders_button.id = 'new_orders_button'
         new_orders_button.textContent = 'Новые'
-        order_switch.appendChild(new_orders_button)
+        new_orders_button.addEventListener('click', function(){
+            refresh_order_window(0)
+        })
+        orders_switch.appendChild(new_orders_button)
     
         let active_orders_button = document.createElement('button')
         active_orders_button.id = 'active_orders_button'
         active_orders_button.textContent = 'Активные'
-        order_switch.appendChild(active_orders_button)
+        active_orders_button.addEventListener('click', function(){
+            refresh_order_window(1)
+        })
+        orders_switch.appendChild(active_orders_button)
     
         let closed_orders_button = document.createElement('button')
         closed_orders_button.id = 'closed_orders_button'
         closed_orders_button.textContent = 'Закрытые'
-        order_switch.appendChild(closed_orders_button)
+        closed_orders_button.addEventListener('click', function(){
+            refresh_order_window(2)
+        })
+        orders_switch.appendChild(closed_orders_button)
+
+        let all_orders_button = document.createElement('button')
+        all_orders_button.id = 'all_orders_button'
+        all_orders_button.textContent = 'Все'
+        all_orders_button.addEventListener('click', function(){
+            refresh_order_window(null)
+        })
+        orders_switch.appendChild(all_orders_button)
     
-        orders_management.appendChild(order_switch)
+        orders_management.appendChild(orders_switch)
     
         let order_records = document.createElement('div')
 
@@ -114,12 +131,15 @@ function create_orders_window(rows = []) {
     });
 }
 
-async function refresh_order_window (){
+async function refresh_order_window (state){
 
     document.getElementById('orders_management').remove();
     let user_info = {}
     user_info.email = localStorage.getItem('email')
     user_info.password = localStorage.getItem('password')
+    if (state != null){
+        user_info.state = state
+    }
     await get_admin_orders_data(JSON.stringify(user_info))
     document.getElementById('orders_management').style.display = 'block'
 }
@@ -131,6 +151,5 @@ async function refresh_order_window (){
 
 //             </div>
 //         )
-
 //     }
 // }

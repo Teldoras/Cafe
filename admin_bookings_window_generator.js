@@ -5,26 +5,43 @@ function create_booking_window(rows = []) {
     let booking_management = document.createElement('div')
     booking_management.id = 'booking_management'
 
-    let booking_switch = document.createElement('div')
-    booking_switch.id = 'booking_switch'
-    booking_switch.style.display = 'flexbox'
+    let bookings_switch = document.createElement('div')
+    bookings_switch.id = 'bookings_switch'
+    bookings_switch.style.display = 'flexbox'
 
     let new_bookings_button = document.createElement('button')
     new_bookings_button.id = 'new_bookings_button'
     new_bookings_button.textContent = 'Новые'
-    booking_switch.appendChild(new_bookings_button)
+    new_bookings_button.addEventListener('click', function(){
+        refresh_booking_window(0)
+    })
+    bookings_switch.appendChild(new_bookings_button)
 
     let active_bookings_button = document.createElement('button')
     active_bookings_button.id = 'active_bookings_button'
     active_bookings_button.textContent = 'Активные'
-    booking_switch.appendChild(active_bookings_button)
+    active_bookings_button.addEventListener('click', function(){
+        refresh_booking_window(1)
+    })
+    bookings_switch.appendChild(active_bookings_button)
 
     let closed_bookings_button = document.createElement('button')
     closed_bookings_button.id = 'closed_bookings_button'
     closed_bookings_button.textContent = 'Закрытые'
-    booking_switch.appendChild(closed_bookings_button)
+    closed_bookings_button.addEventListener('click', function(){
+        refresh_booking_window(2)
+    })
+    bookings_switch.appendChild(closed_bookings_button)
 
-    booking_management.appendChild(booking_switch)
+    let all_bookings_button = document.createElement('button')
+    all_bookings_button.id = 'all_bookings_button'
+    all_bookings_button.textContent = 'Все'
+    all_bookings_button.addEventListener('click', function(){
+        refresh_booking_window(null)
+    })
+    bookings_switch.appendChild(all_bookings_button)
+
+    booking_management.appendChild(bookings_switch)
 
     let booking_records = document.createElement('div')
 
@@ -104,10 +121,13 @@ function create_booking_window(rows = []) {
     });
 }
 
-async function refresh_booking_window (){
+async function refresh_booking_window (state){
     document.getElementById('booking_management').remove();
     let user_info = {}
     user_info.email = localStorage.getItem('email')
     user_info.password = localStorage.getItem('password')
+    if (state != null){
+        user_info.state = state
+    }
     await get_admin_booking_data(JSON.stringify(user_info))
 }
